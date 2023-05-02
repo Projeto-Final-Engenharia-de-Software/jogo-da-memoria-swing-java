@@ -18,6 +18,6 @@
 <p align="center"><i></i></p>
 <br>
 <p align="center">Gabriel Ávila</p>
-<p align="center"><i><b>Github:</b> /gabriel.avila27</i></p>
+<p align="center"><i><b>Github:</b> /gabrielavila27</i></p>
 <hr>
 <p align="center"><i>2023 - Unit Alagoas</i></p>

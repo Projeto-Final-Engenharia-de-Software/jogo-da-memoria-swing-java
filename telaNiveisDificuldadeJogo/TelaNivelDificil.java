@@ -8,8 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import javax.lang.model.type.NullType;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -35,9 +33,8 @@ public class TelaNivelDificil extends JFrame {
     }
 
     /**
-     * @param LayoutManager
      */
-    public TelaNivelDificil(LayoutManager LayoutManager){
+    public TelaNivelDificil(){
         super("Jogo da Memória - Nível Difícil");
 
         listaControle = new ArrayList<>();
@@ -124,10 +121,16 @@ public class TelaNivelDificil extends JFrame {
             }
     
             controle.adicionarBotao(botao);
+            }
         }
-        public static void main(String[]args) {
-            new TelaNivelDificil();
-            setVisible(true);
+
+        /**
+         * @param args
+         */
+
+        public static void main (String[] args) {
+            TelaNivelDificil tela = new TelaNivelDificil();
         }
     }
-}
+
+

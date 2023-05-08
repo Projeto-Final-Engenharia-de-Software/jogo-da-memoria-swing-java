@@ -6,6 +6,8 @@ import javax.swing.*;
 
 public class TelaNiveisDificuldade extends JFrame {
 
+    protected static final LayoutManager layoutMgr = null;
+
     public TelaNiveisDificuldade() {
         super("Escolha o nível de dificuldade do jogo");
         setSize(400, 200);
@@ -37,19 +39,22 @@ public class TelaNiveisDificuldade extends JFrame {
         
         btnNivelFacil.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-        
+                TelaNivelFacil telaFacil = new TelaNivelFacil(layoutMgr);
+                telaFacil.setVisible(true);
             }
         });
         
         btnNivelMedio.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-        
+                TelaNivelMedio telaMedio = new TelaNivelMedio(layoutMgr);
+                telaMedio.setVisible(true);
             }
         });
         
         btnNivelDificil.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-        
+                TelaNivelDificil telaDificil = new TelaNivelDificil();
+                telaDificil.setVisible(true);
             }
         });
         

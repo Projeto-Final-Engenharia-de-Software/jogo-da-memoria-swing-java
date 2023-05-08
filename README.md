@@ -15,7 +15,7 @@
 <p align="center"><i><b>Github:</b> /joaomoura001</i></p>
 <br>
 <p align="center">Igor Laranjeiras</p>
-<p align="center"><i></i></p>
+<p align="center"><i><b>Github: /robertofrippo</b></i></p>
 <br>
 <p align="center">Gabriel Ávila</p>
 <p align="center"><i><b>Github:</b> /gabrielavila27</i></p>

@@ -79,13 +79,16 @@ public class TelaNivelFacil extends JFrame {
 
         painel = new JPanel();
         this.add(painel);
-        painel.setLayout(new GridLayout(0, 5, 20, 20));
+        painel.setLayout(new GridLayout(0, 5, 30, 50));
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        criarJogo(7);
+        criarJogo(30);
         this.setBounds(120, 100, 500, 500);
         this.setVisible(true);
     }
+    public TelaNivelFacil(Object layoutMgr2) {
+    }
+
     protected void criarJogo(int qtPares) {
         criarJogo(10);
         List<Integer> valoresPares = new ArrayList<>();

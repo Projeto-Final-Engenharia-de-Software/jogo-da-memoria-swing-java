@@ -1,12 +1,17 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.KeyboardFocusManager;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -17,18 +22,30 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
-import telasNiveisDificuldadeJogo.TelaNiveisDificuldade;
+import telaNiveisDificuldadeJogo.TelaNiveisDificuldade;
 
 public class MainFrame extends JFrame {
+    private static final KeyListener tabListener = null;
+    private static final Component btnLogin = null;
+    private static final Component btnCancelar = null;
+    protected static final String WARNING_MESSAGE = null;
+    protected static final String JOptionPane = null;
+    /**
+     *
+     */
     final private Font mainFont = new Font("Arial", Font.BOLD, 10);
     JTextField tfEmailUsuario, tfSenhaUsuario;
     /**
      * @param panel TODO
-     * 
-     */
-    public void initialize(JPanel panel) {
+    **/
+    
+    public void initialize() {
+
+        // Mudar cor dos botões
+        UIManager.put("Button.background", Color.white);
 
         /************Form Panel**************/
 
@@ -36,7 +53,7 @@ public class MainFrame extends JFrame {
         labelTitulo.setFont(new Font("Arial", Font.BOLD, 20));
 
 
-        JLabel lbEmailUsuario = new JLabel("E-mail: ", SwingConstants.CENTER);
+        JLabel lbEmailUsuario = new JLabel("Login: ", SwingConstants.CENTER);
         lbEmailUsuario.setFont(new Font("Arial", Font.BOLD, 20));
 
         JLabel lbSenhaUsuario = new JLabel("Senha: ", SwingConstants.CENTER);
@@ -61,7 +78,7 @@ public class MainFrame extends JFrame {
         formPanel.add(lbSenhaUsuario);
         formPanel.add(tfSenhaUsuario);
         /************Buttons Panel**************/
-        JButton btnLogin = new JButton("Login");
+        final JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,7 +94,7 @@ public class MainFrame extends JFrame {
             }
         });
         
-        JButton btnCancelar = new JButton("Cancelar");
+        final JButton btnCancelar = new JButton("Cancelar");
         btnCancelar.setFont(mainFont);
         btnCancelar.addActionListener(new ActionListener() {
         @Override
@@ -102,6 +119,10 @@ public class MainFrame extends JFrame {
                 } else {
                    
                 }
+            }
+
+            private String extracted() {
+                return JOptionPane;
             }
         });
         
@@ -129,6 +150,16 @@ public class MainFrame extends JFrame {
         
         add(mainPanel);
 
+        // Adicionar um ouvinte de eventos para detectar a tecla Tab
+
+        KeyAdapter tabListener = new KeyAdapter() {
+            public void KeyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_TAB){
+                    e.consume();
+                }
+            }
+        };
+
         setTitle("Área de Login");
         setSize(400, 300);
         setMaximumSize(new Dimension(600, 400));
@@ -137,9 +168,16 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
+    protected void JOptionPane() {
+    }
+
+    protected Object ERROR_MESSAGE() {
+        return null;
+    }
+
     public static void main(String[] args) {
         MainFrame myFrame = new MainFrame();
-        myFrame.initialize(null);
+        myFrame.initialize();
     }
 }
 

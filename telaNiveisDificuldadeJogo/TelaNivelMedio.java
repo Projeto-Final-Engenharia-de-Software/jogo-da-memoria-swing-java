@@ -86,6 +86,9 @@ public class TelaNivelMedio extends JFrame {
         this.setBounds(120, 100, 500, 500);
         this.setVisible(true);
     }
+    public TelaNivelMedio(Object layoutMgr2) {
+    }
+
     private void criarJogo(int qtPares) {
         List<Integer> valoresPares = new ArrayList<>();
         for (int i = 1; i <= qtPares; i++) {

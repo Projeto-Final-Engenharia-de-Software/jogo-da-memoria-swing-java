@@ -28,11 +28,6 @@ import javax.swing.WindowConstants;
 import telaNiveisDificuldadeJogo.TelaNiveisDificuldade;
 
 public class MainFrame extends JFrame {
-    private static final KeyListener tabListener = null;
-    private static final Component btnLogin = null;
-    private static final Component btnCancelar = null;
-    protected static final String WARNING_MESSAGE = null;
-    protected static final String JOptionPane = null;
     /**
      *
      */
@@ -50,14 +45,14 @@ public class MainFrame extends JFrame {
         /************Form Panel**************/
 
         JLabel labelTitulo = new JLabel("Jogo da Memória", SwingConstants.CENTER);
-        labelTitulo.setFont(new Font("Arial", Font.BOLD, 20));
+        labelTitulo.setFont(new Font("Verdana", Font.BOLD, 20));
 
 
         JLabel lbEmailUsuario = new JLabel("Login: ", SwingConstants.CENTER);
-        lbEmailUsuario.setFont(new Font("Arial", Font.BOLD, 20));
+        lbEmailUsuario.setFont(new Font("Verdana", Font.BOLD, 20));
 
         JLabel lbSenhaUsuario = new JLabel("Senha: ", SwingConstants.CENTER);
-        lbSenhaUsuario.setFont(new Font("Arial", Font.BOLD, 20));
+        lbSenhaUsuario.setFont(new Font("Verdana", Font.BOLD, 20));
         
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // Obtém a dimensão da tela
@@ -86,8 +81,8 @@ public class MainFrame extends JFrame {
                 String senhaUsuario = tfSenhaUsuario.getText();
                 
                 // Instancia a próxima classe e a torna visível
-                TelaNiveisDificuldade telaNiveisDificuldade = new TelaNiveisDificuldade();
-                telaNiveisDificuldade.setVisible(true);
+                // TelaNiveisDificuldade telaNiveisDificuldade = new TelaNiveisDificuldade();
+                // telaNiveisDificuldade.setVisible(true);
                 
                 // Fecha a janela de login
                 dispose();
@@ -104,33 +99,32 @@ public class MainFrame extends JFrame {
     }
 });
 
-        btnLogin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = tfEmailUsuario.getText();
-                String password = tfSenhaUsuario.getText();
+btnLogin.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String username = tfEmailUsuario.getText();
+        String password = tfSenhaUsuario.getText();
 
-                if (username == null || username.trim().isEmpty() ||
-                        password == null || password.trim().isEmpty()) {
-                    JOptionPane.showMessageDialog(MainFrame.this,
-                            "Por favor, digite o usuário e a senha.",
-                            "Erro de Login",
-                            JOptionPane.ERROR_MESSAGE);
-                } else {
-                   
-                }
-            }
+        // Verifica se os campos estão vazios
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos antes de realizar o login.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            return; // Parada no código
+        } else {
+            // Avança para a próxima tela
 
-            private String extracted() {
-                return JOptionPane;
-            }
-        });
-        
+            JFrame telaNiveisDificuldade = new JFrame("Jogo da Memória - Níveis de Dificuldade");
+            telaNiveisDificuldade.setSize(400, 200);
+            telaNiveisDificuldade.setVisible(true);
+            return; // Parada no código
+        }
 
-        btnLogin.setFont(new Font("Arial", Font.PLAIN, 12));
+    }
+});      
+
+        btnLogin.setFont(new Font("Verdana", Font.PLAIN, 12));
         btnLogin.setPreferredSize(new Dimension(80, 30));
 
-        btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnCancelar.setFont(new Font("Verdana", Font.PLAIN, 12));
         btnCancelar.setPreferredSize(new Dimension(80, 30));
     
 
@@ -180,4 +174,3 @@ public class MainFrame extends JFrame {
         myFrame.initialize();
     }
 }
-

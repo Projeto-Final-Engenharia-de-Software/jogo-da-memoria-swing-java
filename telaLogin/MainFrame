@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
     /**
      *
      */
-    final private Font mainFont = new Font("Arial", Font.BOLD, 10);
+    final private Font mainFont = new Font("Verdana", Font.BOLD, 10);
     JTextField tfEmailUsuario, tfSenhaUsuario;
     /**
      * @param panel TODO
@@ -45,14 +45,17 @@ public class MainFrame extends JFrame {
         /************Form Panel**************/
 
         JLabel labelTitulo = new JLabel("Jogo da Memória", SwingConstants.CENTER);
-        labelTitulo.setFont(new Font("Verdana", Font.BOLD, 20));
-
+        labelTitulo.setFont(new Font("Verdana", Font.ITALIC, 20));
+        labelTitulo.setForeground(Color.RED);
 
         JLabel lbEmailUsuario = new JLabel("Login: ", SwingConstants.CENTER);
-        lbEmailUsuario.setFont(new Font("Verdana", Font.BOLD, 20));
+        lbEmailUsuario.setFont(new Font("Verdana", Font.ITALIC, 20));
+        lbEmailUsuario.setForeground(Color.RED);
 
         JLabel lbSenhaUsuario = new JLabel("Senha: ", SwingConstants.CENTER);
-        lbSenhaUsuario.setFont(new Font("Verdana", Font.BOLD, 20));
+        lbSenhaUsuario.setFont(new Font("Verdana", Font.ITALIC, 20));
+        lbSenhaUsuario.setForeground(Color.RED);
+
         
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // Obtém a dimensão da tela
@@ -92,12 +95,17 @@ public class MainFrame extends JFrame {
         final JButton btnCancelar = new JButton("Cancelar");
         btnCancelar.setFont(mainFont);
         btnCancelar.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        Window window = SwingUtilities.getWindowAncestor((JButton)e.getSource());
-        window.dispose();
-    }
-});
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcao = JOptionPane.showConfirmDialog(null, "Deseja sair do jogo?", "Sair do Jogo", JOptionPane.YES_NO_OPTION);
+                if (opcao == JOptionPane.YES_OPTION) {
+                    // Fecha a janela
+                    Window window = SwingUtilities.getWindowAncestor((JButton)e.getSource());
+                    window.dispose();
+                }
+            }
+        });
+
 
 btnLogin.addActionListener(new ActionListener() {
     @Override
@@ -107,19 +115,19 @@ btnLogin.addActionListener(new ActionListener() {
 
         // Verifica se os campos estão vazios
         if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos antes de realizar o login.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, reinicie o jogo novamente e preencha os campos de login e senha.", "Aviso", JOptionPane.ERROR_MESSAGE);
             return; // Parada no código
         } else {
             // Avança para a próxima tela
-
             JFrame telaNiveisDificuldade = new JFrame("Jogo da Memória - Níveis de Dificuldade");
             telaNiveisDificuldade.setSize(400, 200);
             telaNiveisDificuldade.setVisible(true);
             return; // Parada no código
         }
-
     }
-});      
+}); 
+
+        // Cria uma borda com espaçamento de 10 pixels
 
         btnLogin.setFont(new Font("Verdana", Font.PLAIN, 12));
         btnLogin.setPreferredSize(new Dimension(80, 30));

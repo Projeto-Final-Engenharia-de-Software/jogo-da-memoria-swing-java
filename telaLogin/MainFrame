@@ -1,3 +1,5 @@
+package telaLogin;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -28,6 +30,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
+import telaNiveisDificuldadeJogo.TelaNiveisDificuldade;
+
 public class MainFrame extends JFrame {
     /**
      *
@@ -46,7 +50,7 @@ public class MainFrame extends JFrame {
         /************Form Panel**************/
 
         JLabel labelTitulo = new JLabel("Jogo da Memória", SwingConstants.CENTER);
-        labelTitulo.setFont(new Font("Verdana", Font.ITALIC, 40));
+        labelTitulo.setFont(new Font("Verdana", Font.ITALIC, 20));
         labelTitulo.setForeground(new Color(139, 69, 19)); // marrom
 
         JLabel lbEmailUsuario = new JLabel("Login: ", SwingConstants.CENTER);
@@ -104,8 +108,7 @@ public class MainFrame extends JFrame {
 btnLogin.addActionListener(new ActionListener() {
     /**
      * @param e
-     * @param layoutManager
-     */
+    */
     @Override
     public void actionPerformed(ActionEvent e) {
         String username = tfEmailUsuario.getText();
@@ -116,61 +119,9 @@ btnLogin.addActionListener(new ActionListener() {
             JOptionPane.showMessageDialog(null, "Por favor, reinicie o jogo novamente e preencha os campos de login e senha.", "Aviso", JOptionPane.ERROR_MESSAGE);
             return; // Parada no código
         } else {
-            // Avança para a próxima tela
-            JFrame telaNiveisDificuldade = new JFrame("Jogo da Memória - Níveis de Dificuldade");
-            telaNiveisDificuldade.setSize(400, 200);
-            telaNiveisDificuldade.setVisible(true);
-            
-            JPanel painel = new JPanel();
-            painel.setBackground(Color.PINK);
-            telaNiveisDificuldade.add(painel);
-
-            // Adicione a JLabel
-        JLabel label = new JLabel("Escolha o nível de dificuldade do jogo", SwingConstants.CENTER);
-        label.setForeground(new Color(139, 69, 19)); // marrom
-        label.setFont(new Font("Verdana", Font.ITALIC, 16));
-        painel.add(label, BorderLayout.NORTH);
-
-        // Crie um painel para os botões
-        JPanel painelBotoes = new JPanel(new GridBagLayout());
-
-        // Crie uma restrição para o GridBagLayout
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.VERTICAL;
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.weighty = 1.0;
-        
-        JButton btnNivelFacil = new JButton("Nível Fácil");
-        JButton btnNivelMedio = new JButton("Nível Médio");
-        JButton btnNivelDificil = new JButton("Nível Difícil");
-        
-        btnNivelFacil.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                
-            }
-        });
-        
-        btnNivelMedio.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                
-            }
-        });
-        
-        btnNivelDificil.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e) {
-               
-            }
-        });
-
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.weightx = 1.0;
-        
-        // Adicione os botões ao painel com a restrição de preenchimento
-        painelBotoes.add(btnNivelFacil, gbc);
-        painelBotoes.add(btnNivelMedio, gbc);
-        painelBotoes.add(btnNivelDificil, gbc);
-
-        telaNiveisDificuldade.setVisible(true);
+        // Avança para a próxima tela
+        TelaNiveisDificuldade tela = new TelaNiveisDificuldade();
+        tela.setVisible(true);
 
         return; // Parada no código
         }

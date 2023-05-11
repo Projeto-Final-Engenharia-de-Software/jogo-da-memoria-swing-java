@@ -5,11 +5,17 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class TelaNiveisDificuldade extends JFrame {
-
-    protected static final LayoutManager layoutMgr = null;
-
+    /**
+     * 
+     */
     public TelaNiveisDificuldade() {
-        super("Escolha o nível de dificuldade do jogo");
+
+        // Mudar cor dos botões
+        UIManager.put("Button.background", Color.white);
+        setTitle("Escolher nível de dificuldade");
+        JLabel labelTitulo = new JLabel("Escolha o nível de dificuldade do jogo", SwingConstants.CENTER);
+        labelTitulo.setFont(new Font("Verdana", Font.ITALIC, 20));
+        labelTitulo.setForeground(new Color(139, 69, 19)); // marrom
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -21,7 +27,8 @@ public class TelaNiveisDificuldade extends JFrame {
 
         // Adicione a JLabel
         JLabel label = new JLabel("Escolha o nível de dificuldade do jogo", SwingConstants.CENTER);
-        label.setFont(new Font("Segoe print", Font.BOLD, 16));
+        label.setFont(new Font("Verdana", Font.ITALIC, 16));
+        label.setForeground(new Color(139, 69, 19)); // marrom
         painelPrincipal.add(label, BorderLayout.NORTH);
 
         // Crie um painel para os botões
@@ -39,22 +46,19 @@ public class TelaNiveisDificuldade extends JFrame {
         
         btnNivelFacil.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                TelaNivelFacil telaFacil = new TelaNivelFacil(layoutMgr);
-                telaFacil.setVisible(true);
+                
             }
         });
         
         btnNivelMedio.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                TelaNivelMedio telaMedio = new TelaNivelMedio(layoutMgr);
-                telaMedio.setVisible(true);
+                
             }
         });
         
         btnNivelDificil.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                TelaNivelDificil telaDificil = new TelaNivelDificil();
-                telaDificil.setVisible(true);
+                
             }
         });
         
@@ -66,7 +70,8 @@ public class TelaNiveisDificuldade extends JFrame {
         painelBotoes.add(btnNivelFacil, gbc);
         painelBotoes.add(btnNivelMedio, gbc);
         painelBotoes.add(btnNivelDificil, gbc);
-        painelBotoes.setBackground(new Color(255, 153, 153));
+        
+        painelBotoes.setBackground(new Color(255, 153, 153)); // Define a cor de fundo do painel de botões
 
         painelPrincipal.add(painelBotoes, BorderLayout.CENTER);
         getContentPane().add(painelPrincipal);

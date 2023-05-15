@@ -37,7 +37,7 @@ public class MainFrame extends JFrame {
      *
      */
     final private Font mainFont = new Font("Verdana", Font.BOLD, 10);
-    JTextField tfEmailUsuario, tfSenhaUsuario;
+    JTextField tfLoginUsuario, tfSenhaUsuario;
     /**
      * @param panel TODO
     **/
@@ -53,9 +53,9 @@ public class MainFrame extends JFrame {
         labelTitulo.setFont(new Font("Verdana", Font.ITALIC, 20));
         labelTitulo.setForeground(new Color(139, 69, 19)); // marrom
 
-        JLabel lbEmailUsuario = new JLabel("Login: ", SwingConstants.CENTER);
-        lbEmailUsuario.setFont(new Font("Verdana", Font.ITALIC, 20));
-        lbEmailUsuario.setForeground(new Color(139, 69, 19)); // marrom
+        JLabel lbLoginUsuario = new JLabel("Login: ", SwingConstants.CENTER);
+        lbLoginUsuario.setFont(new Font("Verdana", Font.ITALIC, 20));
+        lbLoginUsuario.setForeground(new Color(139, 69, 19)); // marrom
 
         JLabel lbSenhaUsuario = new JLabel("Senha: ", SwingConstants.CENTER);
         lbSenhaUsuario.setFont(new Font("Verdana", Font.ITALIC, 20));
@@ -66,16 +66,16 @@ public class MainFrame extends JFrame {
 
         int numCols = (int) (screenWidth * 0.05); // Define o número de colunas como 5% da largura da tela
 
-        tfEmailUsuario = new JTextField(10);
-        tfEmailUsuario.setColumns(numCols); // Define o tamanho do campo de email
+        tfLoginUsuario = new JTextField(10);
+        tfLoginUsuario.setColumns(numCols); // Define o tamanho do campo de login
         tfSenhaUsuario = new JTextField(10);
         tfSenhaUsuario.setColumns(numCols); // Define o tamanho do campo de senha
 
         JPanel formPanel = new JPanel();
         formPanel.setLayout(new GridLayout(4, 1, 5, 5));
         formPanel.setOpaque(false);
-        formPanel.add(lbEmailUsuario);
-        formPanel.add(tfEmailUsuario);
+        formPanel.add(lbLoginUsuario);
+        formPanel.add(tfLoginUsuario);
         formPanel.add(lbSenhaUsuario);
         formPanel.add(tfSenhaUsuario);
         /************Buttons Panel**************/
@@ -83,7 +83,7 @@ public class MainFrame extends JFrame {
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String emailUsuario = tfEmailUsuario.getText();
+                String loginUsuario = tfLoginUsuario.getText();
                 String senhaUsuario = tfSenhaUsuario.getText();
                 
                 dispose();
@@ -111,12 +111,13 @@ btnLogin.addActionListener(new ActionListener() {
     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        String username = tfEmailUsuario.getText();
-        String password = tfSenhaUsuario.getText();
+        String nickname = tfLoginUsuario.getText();
+        String senhaUsuario = tfSenhaUsuario.getText();
 
         // Verifica se os campos estão vazios
-        if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, reinicie o jogo novamente e preencha os campos de login e senha.", "Aviso", JOptionPane.ERROR_MESSAGE);
+
+        if (nickname.isEmpty() || senhaUsuario.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválida!", "Aviso", JOptionPane.ERROR_MESSAGE);
             return; // Parada no código
         } else {
         // Avança para a próxima tela

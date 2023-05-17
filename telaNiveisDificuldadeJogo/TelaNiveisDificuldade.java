@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import regras.TelaRegras;
+
 public class TelaNiveisDificuldade extends JFrame {
     /**
      * 
@@ -46,19 +48,22 @@ public class TelaNiveisDificuldade extends JFrame {
         
         btnNivelFacil.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                
+                TelaRegras telaRegras = new TelaRegras();
+                telaRegras.setVisible(true);
             }
         });
         
         btnNivelMedio.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                
+                TelaRegras telaRegras = new TelaRegras();
+                telaRegras.setVisible(true);
             }
         });
         
         btnNivelDificil.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                
+                TelaRegras telaRegras = new TelaRegras();
+                telaRegras.setVisible(true);
             }
         });
         

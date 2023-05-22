@@ -158,8 +158,7 @@ class MenuPrincipal extends JFrame {
         
         btnIniciarJogo.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                TelaNiveisDificuldade tela = new TelaNiveisDificuldade();
-                tela.setVisible(true);
+               
             }
         });
         
@@ -173,6 +172,7 @@ class MenuPrincipal extends JFrame {
                     // Fecha a janela
                     Window window = SwingUtilities.getWindowAncestor((JButton)e.getSource());
                     window.dispose();
+                    System.exit(0); // Encerra o processo do jogo
                 }
             }
         });
